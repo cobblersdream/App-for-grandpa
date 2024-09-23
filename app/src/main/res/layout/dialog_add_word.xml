@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Input for new word -->
+    <EditText
+        android:id="@+id/newWordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter word"
+        android:inputType="text" />
+
+    <!-- Dropdown for selecting category -->
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+    <!-- Checkbox for marking as survival word -->
+    <CheckBox
+        android:id="@+id/survivalCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mark as Survival Word"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

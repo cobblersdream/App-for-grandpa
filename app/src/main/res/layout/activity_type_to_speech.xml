@@ -1,0 +1,81 @@
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:rowCount="6"
+    android:padding="16dp">
+
+    <!-- EditText for user input -->
+    <EditText
+        android:id="@+id/textInputField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:hint="@string/hint_type_something"
+        android:textSize="18sp"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:layout_gravity="center_horizontal"
+        android:autofillHints="username"
+        android:maxWidth="320dp"
+        android:inputType="textMultiLine"
+        android:maxLines="4" />
+
+    <!-- Size Slider for adjusting text size -->
+    <SeekBar
+        android:id="@+id/sizeSlider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:max="100"
+        android:progress="50"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/size_slider_description" />
+
+    <!-- Speech rate slider -->
+    <SeekBar
+        android:id="@+id/speechRateSlider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:max="20"
+        android:progress="10"
+        android:rotation="270"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/speech_rate_slider_description" />
+
+    <!-- Read Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/readButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/read_button_text"
+        android:layout_columnSpan="2"
+        android:layout_gravity="center_horizontal"
+        style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+    <!-- Progress Bar for TTS initialization -->
+    <ProgressBar
+        android:id="@+id/ttsProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_columnSpan="2"
+        android:visibility="gone"
+        android:layout_marginTop="16dp" />
+
+
+    <!-- Back Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back_button_text"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_columnSpan="2"
+        style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+</GridLayout>

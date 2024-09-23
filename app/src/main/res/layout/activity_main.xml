@@ -1,0 +1,46 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:rowCount="2"
+    android:columnCount="2">
+
+    <!-- Survival Words Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSurvivalWords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/survival_words_button_text"
+        android:textSize="24sp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_gravity="center" />
+
+    <!-- Dictionary Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDictionary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dictionary_button_text"
+        android:textSize="24sp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_gravity="center" />
+
+    <!-- Type to Speech Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnTypeToSpeech"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/type_to_speech_button_text"
+        android:textSize="24sp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_gravity="center" />
+
+    <!-- Help with Speaking Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnHelpWithSpeaking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/help_with_speaking_button_text"
+        android:textSize="24sp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_gravity="center" />
+</GridLayout>

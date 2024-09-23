@@ -1,0 +1,112 @@
+<!-- File: res/layout/activity_dictionary.xml -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Search bar for searching dictionary words -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/dictionarySearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Search Dictionary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp" />
+
+    <!-- Category buttons with GridLayout for adaptive layout -->
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/categoryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:columnCount="2"
+        app:layout_constraintTop_toBottomOf="@id/dictionarySearchView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/addWordButton">
+
+        <!-- Category buttons -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFeelings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/feelings_button_text"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnObjects"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/objects_button_text"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPeople"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/people_button_text"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPlaces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/places_button_text"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerbs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/verbs_button_text"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+    </androidx.gridlayout.widget.GridLayout>
+
+    <!-- Add Word button for adding new words to the dictionary -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addWordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Word"
+        app:layout_constraintTop_toBottomOf="@id/categoryLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+    <!-- RecyclerView for showing words under the selected category -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dictionaryRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/addWordButton"
+        app:layout_constraintBottom_toTopOf="@id/backButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Back button to return to the previous screen -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,42 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">CommunicatorApp</string>
+
+    <!-- Activity Titles -->
+    <string name="title_activity_type_to_speech">TypeToSpeechActivity</string>
+    <string name="title_activity_survival_words">SurvivalWordsActivity</string>
+    <string name="title_activity_help_with_speaking">HelpWithSpeakingActivity</string>
+    <string name="title_activity_dictionary">DictionaryActivity</string>
+
+    <!-- Activity Dictionary -->
+    <string name="feelings_button_text">Feelings</string>
+    <string name="objects_button_text">Objects</string>
+    <string name="people_button_text">People</string>
+    <string name="places_button_text">Places</string>
+    <string name="verbs_button_text">Verbs</string>
+    <string name="back_button_text">Back</string>
+
+    <!-- Help with Speaking (in development) -->
+    <string name="development_message_text">This section is in development</string>
+
+    <!-- Main Grid Buttons -->
+    <string name="survival_words_button_text">Survival Words</string>
+    <string name="dictionary_button_text">Dictionary</string>
+    <string name="type_to_speech_button_text">Type to Speech</string>
+    <string name="help_with_speaking_button_text">Help with Speaking</string>
+
+    <!-- Survival Words Activity -->
+    <string name="add_word_button_text">Add Word</string>
+
+    <!-- Survival Word Item (from 5/7 and 6/7) -->
+    <string name="word_text">Word</string>
+    <string name="speak_button_text">Speak</string>
+
+    <!-- Type to Speech (7/7) -->
+    <string name="hint_type_something">Type something&#8230;</string>
+    <string name="read_button_text">Read</string>
+
+    <!-- New Slider Descriptions for Type to Speech -->
+    <string name="size_slider_description">Adjust text size</string>
+    <string name="speech_rate_slider_description">Adjust speech rate</string>
+</resources>
