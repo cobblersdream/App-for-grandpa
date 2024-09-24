@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")  // Add this line for KAPT support
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -40,8 +41,9 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+    composeCompiler {
+        reportsDestination = layout.buildDirectory.dir("compose_compiler")
+        //stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
     }
     packaging {
         resources {
@@ -58,26 +60,37 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.ui.tooling.preview) // Ensure this is defined in your toml
     implementation(libs.androidx.material3)
+
+    // Test dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.tooling) // Ensure this is defined in your toml
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Other dependencies
     implementation(libs.constraintlayout)
-    implementation(libs.androidx.appcompat)  // AppCompat
-    implementation(libs.androidx.recyclerview)  // RecyclerView
-    implementation(libs.androidx.material)  // Material Components
-    implementation(libs.androidx.preference)  // Preference Library
-    implementation(libs.androidx.gridlayout)  // GridLayout
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.preference)
+    implementation(libs.androidx.gridlayout)
 
     // Room dependencies
-    implementation(libs.androidx.room.runtime)  // Room Runtime
-    kapt(libs.androidx.room.compiler)  // Room Compiler (Annotation Processing)
-    implementation(libs.androidx.room.ktx)  // Room Kotlin Extensions for coroutine support
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    // Compose dependencies
+    implementation(libs.compose.ui)
+    implementation(libs.compose.material)
+    implementation(libs.compose.ui.tooling.preview)  // Ensure this is defined in your toml
+    implementation(libs.activity.compose)
+    implementation(libs.lifecycle.runtime.ktx)
+
+    debugImplementation(libs.compose.ui.tooling)  // Ensure this is defined in your toml
 }

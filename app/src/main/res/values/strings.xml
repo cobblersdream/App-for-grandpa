@@ -39,4 +39,7 @@
     <!-- New Slider Descriptions for Type to Speech -->
     <string name="size_slider_description">Adjust text size</string>
     <string name="speech_rate_slider_description">Adjust speech rate</string>
+
+    <string name="enter_button_text">Enter</string>
+
 </resources>

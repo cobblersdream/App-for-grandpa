@@ -129,8 +129,8 @@ class DictionaryActivity : AppCompatActivity() {
     }
 
     // Add new word to the database and refresh the list
-    private fun addWordToDictionary(word: String, category: String, isSurvivalWord: Boolean) {
-        val newWord = DictionaryWord(word = word, category = category, isSurvivalWord = isSurvivalWord)
+    private fun addWordToDictionary(word: String, category: String, isSurvivalWord: Boolean, imagePath: String? = null) {
+        val newWord = DictionaryWord(word = word, category = category, isSurvivalWord = isSurvivalWord, imagePath = imagePath)
         lifecycleScope.launch(Dispatchers.IO) {
             dictionaryDao.insertWord(newWord)
             withContext(Dispatchers.Main) {
