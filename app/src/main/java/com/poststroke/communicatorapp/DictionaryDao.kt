@@ -32,6 +32,9 @@ interface DictionaryDao {
     @Query("SELECT * FROM dictionary_words WHERE word = :word LIMIT 1")
     suspend fun getWordByWord(word: String): DictionaryWord?
 
+    @Query("SELECT * FROM dictionary_words WHERE category = :category")
+    suspend fun getWordsByCategory(category: String): List<DictionaryWord>
+
     // Update an existing word in the dictionary
     @Update
     suspend fun updateWord(word: DictionaryWord): Int

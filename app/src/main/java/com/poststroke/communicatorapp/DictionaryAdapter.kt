@@ -12,12 +12,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.poststroke.communicatorapp.R
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // Adapter class for displaying dictionary words in a RecyclerView
 class DictionaryAdapter(
     private val context: Context,
     private var words: List<DictionaryWord>,
     private val tts: TextToSpeech,
+    private val dictionaryDao: DictionaryDao,  // Pass dictionaryDao
+    private val coroutineScope: CoroutineScope,  // Pass the lifecycleScope or any CoroutineScope
     private val onWordClick: (DictionaryWord) -> Unit,
     private val isSurvivalWordsActivity: Boolean // Added as flag to distinguish
 ) : RecyclerView.Adapter<DictionaryAdapter.DictionaryViewHolder>() {
@@ -76,11 +82,17 @@ class DictionaryAdapter(
             Toast.makeText(context, "${wordItem.word} is already a survival word.", Toast.LENGTH_SHORT).show()
         } else {
             val updatedWord = wordItem.copy(isSurvivalWord = true) // Create a new copy with the updated survival status
-            prefs.edit().putBoolean(wordItem.word, true).apply() // Save it as a survival word
-            Toast.makeText(context, "${wordItem.word} added to survival words.", Toast.LENGTH_SHORT).show()
 
-            // You may also want to update the list and refresh the adapter with the new word
-            updateWords(words.map { if (it.word == wordItem.word) updatedWord else it })
+            // Use the coroutineScope passed from the activity
+            coroutineScope.launch(Dispatchers.IO) {
+                dictionaryDao.updateWord(updatedWord)  // Update the word in the database
+
+                withContext(Dispatchers.Main) {
+                    // Update the list and refresh the adapter with the new word
+                    updateWords(words.map { if (it.word == wordItem.word) updatedWord else it })
+                    Toast.makeText(context, "${wordItem.word} added to survival words.", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }

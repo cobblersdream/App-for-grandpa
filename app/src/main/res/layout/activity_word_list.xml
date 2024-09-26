@@ -1,0 +1,39 @@
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:padding="16dp">
+
+    <!-- This will hold the dynamically generated word tiles -->
+    <GridLayout
+        android:id="@+id/wordGridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp" />
+
+    <!-- Add word button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addWordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_word"
+        android:layout_gravity="center_horizontal"
+        android:layout_columnSpan="2"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_marginTop="16dp" />
+
+    <!-- Back button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back_button_text"
+        android:layout_gravity="center_horizontal"
+        android:layout_columnSpan="2"
+        android:layout_marginTop="24dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+</GridLayout>

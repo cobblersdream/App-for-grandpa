@@ -1,30 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Input for new word -->
-    <EditText
-        android:id="@+id/newWordInput"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter word"
-        android:inputType="text" />
+        android:orientation="vertical">
 
-    <!-- Dropdown for selecting category -->
-    <Spinner
-        android:id="@+id/categorySpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        <!-- Text for entering a word -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_word"
+            android:padding="8dp"
+            android:layout_gravity="center_horizontal" />
 
-    <!-- Checkbox for marking as survival word -->
-    <CheckBox
-        android:id="@+id/survivalCheckbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mark as Survival Word"
-        android:layout_marginTop="16dp" />
-</LinearLayout>
+        <!-- EditText for the new word -->
+        <EditText
+            android:id="@+id/newWordInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/word_hint"
+            android:inputType="text"
+            android:padding="16dp"
+            android:minHeight="48dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Text for selecting a category -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_category"
+            android:padding="8dp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Spinner for selecting a category -->
+        <Spinner
+            android:id="@+id/categorySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="16dp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Checkbox for marking as survival word -->
+        <CheckBox
+            android:id="@+id/survivalCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mark_as_survival_word"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:padding="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+</ScrollView>

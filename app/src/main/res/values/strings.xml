@@ -42,4 +42,22 @@
 
     <string name="enter_button_text">Enter</string>
 
+    <!-- Dictionary Activity Strings -->
+    <string name="search_categories">Search Categories</string>
+    <string name="add_category">Add Category</string>
+    <string name="add_word">Add Word</string>
+
+    <!-- Dialog Add Category -->
+    <string name="enter_category_name">Enter Category Name</string>
+    <string name="category_name_hint">Category Name</string>
+
+    <!-- Dialog Add Word -->
+    <string name="enter_word">Enter Word</string>
+    <string name="word_hint">Word</string>
+    <string name="select_category">Select Category</string>
+    <string name="mark_as_survival_word">Mark as Survival Word</string>
+
+    <!-- Item Word -->
+    <string name="survival_word">Survival Word</string>
+
 </resources>

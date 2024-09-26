@@ -86,9 +86,15 @@ class DictionaryActivity : AppCompatActivity() {
             val words = dictionaryDao.getAllWords()
             withContext(Dispatchers.Main) {
                 allWordsList.addAll(words)
-                dictionaryAdapter = DictionaryAdapter(this@DictionaryActivity, allWordsList, tts, { wordItem ->
-                    incrementWordFrequency(wordItem.word)
-                }, false)
+                dictionaryAdapter = DictionaryAdapter(
+                    context = this@DictionaryActivity,
+                    words = allWordsList,
+                    tts = tts,
+                    dictionaryDao = dictionaryDao,  // Pass the DAO here
+                    coroutineScope = lifecycleScope, // Pass the CoroutineScope
+                    onWordClick = { wordItem -> incrementWordFrequency(wordItem.word) },
+                    isSurvivalWordsActivity = false
+                )
                 dictionaryRecyclerView.adapter = dictionaryAdapter
             }
         }

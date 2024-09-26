@@ -58,15 +58,21 @@ class SurvivalWordsActivity : AppCompatActivity() {
             // Retrieve all words that are marked as survival words from the database
             val survivalWords = dictionaryDao.getSurvivalWords()  // This fetches only words where isSurvivalWord == true
 
-            // Sort the survival words by some criteria, if needed (e.g., frequency)
+            // Sort the survival words by frequency or any other criteria, if needed
             val sortedSurvivalWords = survivalWords.sortedByDescending { it.frequency }
 
             withContext(Dispatchers.Main) {
                 // Set the adapter with the sorted list of survival words
                 wordsList.addAll(sortedSurvivalWords)
-                dictionaryAdapter = DictionaryAdapter(this@SurvivalWordsActivity, wordsList, tts, { wordItem ->
-                    incrementWordFrequency(wordItem.word)
-                }, isSurvivalWordsActivity = true)
+                dictionaryAdapter = DictionaryAdapter(
+                    context = this@SurvivalWordsActivity,
+                    words = wordsList,
+                    tts = tts,
+                    dictionaryDao = dictionaryDao,  // Pass the DAO to the adapter
+                    coroutineScope = lifecycleScope, // Pass the coroutine scope
+                    onWordClick = { wordItem -> incrementWordFrequency(wordItem.word) },
+                    isSurvivalWordsActivity = true  // Flag for survival words mode
+                )
                 survivalWordsRecyclerView.adapter = dictionaryAdapter
             }
         }
